@@ -5,8 +5,10 @@ import News from '@/views/News.vue'
 import Shop from '@/views/Shop.vue'
 import Detail from '@/views/Detail.vue'
 
+const base = import.meta.env.VITE_BASE;
+
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(base),
     routes:[
         {
             path: '/',

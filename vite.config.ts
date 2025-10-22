@@ -6,7 +6,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: process.env.NODE_ENV === 'production'
+        ? '/PinkBakery/'   // 部署到 GitHub Pages 的子目錄
+        : '/',             // 開發模式使用 /
   plugins: [
     vue(),
     vueDevTools(),

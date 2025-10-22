@@ -3,7 +3,7 @@
         <div class="container my-3 py-5 news-detail">
             <div class="news-detail__main">
                 <div class="news-detail__img">
-                    <img :src="`/images/news_${findNews.id}.jpg`" />
+                    <img :src="`${BASE_URL}images/news_${findNews.id}.jpg`" />
                 </div>
                 <div class="news-detail__info">
                     <h2>{{ findNews.title }}</h2>
@@ -28,6 +28,7 @@ import { computed } from 'vue'
 import { useNewsStore } from '@/store/news';
 import { useRoute, RouterLink } from 'vue-router';
 
+const BASE_URL = import.meta.env.BASE_URL
 const newsStore = useNewsStore();
 const route = useRoute();
 const newsId = computed(() => Number(route.query.id));

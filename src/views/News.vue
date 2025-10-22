@@ -4,7 +4,7 @@
             <div class="col" v-for="news in newsStore.newsList" :key="news.id">
                 <RouterLink :to="`/news/detail?id=${news.id}`">
                     <div class="card h-100 shadow-sm">
-                        <img :src="`/images/news_${news.id}.jpg`" class="card-img-top shadow-sm" width="100%"
+                        <img :src="`${BASE_URL}images/news_${news.id}.jpg`" class="card-img-top shadow-sm" width="100%"
                             height="225" />
                         <div class="card-body py-0 pt-3">
                             <h4 class="card-title">
@@ -30,6 +30,6 @@ import { reactive } from 'vue';
 import { RouterLink, RouterView } from 'vue-router';
 import { useNewsStore } from '@/store/news';
 
-
 const newsStore = useNewsStore();
+const BASE_URL = import.meta.env.BASE_URL
 </script>

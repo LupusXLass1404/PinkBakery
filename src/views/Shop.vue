@@ -30,7 +30,8 @@
     <div class="container py-3">
         <div class="shop__products">
             <div class="shop__card shadow-sm" v-for="p in filtered" :key="p.id">
-                <div class="thumb" :style="{ backgroundImage: 'url(' + `/images/product_${p.id}.jpg` + ')' }"></div>
+                <div class="thumb" :style="{ backgroundImage: 'url(' + `${BASE_URL}images/product_${p.id}.jpg` + ')' }">
+                </div>
                 <div>
                     <div class="meta">
                         <div>
@@ -66,7 +67,7 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="thumb thumb--big"
-                        :style="{ backgroundImage: 'url(' + `/images/product_${productCurrent.id}.jpg` + ')' }">
+                        :style="{ backgroundImage: 'url(' + `${BASE_URL}images/product_${productCurrent.id}.jpg` + ')' }">
                     </div>
                     <div>
                         <!-- 介紹 -->
@@ -90,6 +91,7 @@ import { ref, reactive, computed } from 'vue';
 import { useProductStore } from '@/store/product';
 import { useCartStore } from '@/store/cart';
 
+const BASE_URL = import.meta.env.BASE_URL
 const productStore = useProductStore();
 const cartStore = useCartStore();
 const q = ref('')

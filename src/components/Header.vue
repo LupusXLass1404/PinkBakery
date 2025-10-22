@@ -49,7 +49,7 @@
         <div v-if="cart.length === 0" class="cart-panel__tip">你的購物車是空的</div>
 
         <div v-for="(c, idx) in cart" :key="c.id" class="cart-panel__item">
-            <img :src="`/images/product_${c.id}.jpg`" alt="" />
+            <img :src="`${BASE_URL}images/product_${c.id}.jpg`" alt="" />
 
             <div class="cart-panel__price">
                 <b>{{ c.name }}</b>
@@ -81,6 +81,7 @@ import { RouterLink } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart';
 
+const BASE_URL = import.meta.env.BASE_URL
 const props = defineProps({
     title: String
 })
