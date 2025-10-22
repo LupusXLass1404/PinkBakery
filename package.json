@@ -11,7 +11,8 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build"
+    "type-check": "vue-tsc --build",
+    "deploy": "npm run build && git push origin `git subtree split --prefix dist dev`:gh-pages --force"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.1",
